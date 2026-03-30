@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# IDEs
+.vscode/
+.idea/
+.gemini/
+pyrightconfig.json
+
+# Business Insider
+*.log
+tests/verify_lifecycle.py
+outputs/
+data/*.json
+!data/sample_registry.json

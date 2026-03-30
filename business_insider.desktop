@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Business Insider Intelligence
+Comment=Strategic Sovereign Intelligence Platform
+Exec=/home/amit/apps/business_insider/run_app.sh
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Categories=Utility;Application;

@@ -1,0 +1,34 @@
+{
+    "company": {
+        "cin": "U40100MH2000PLC7404",
+        "name": "Company U40100MH2000PLC7404",
+        "authorized_capital": "1,000,000,000",
+        "paid_up_capital": "500,000,000"
+    },
+    "directors": [
+        {
+            "din": "00191234",
+            "name": "MUKESH PATEL",
+            "designation": "Managing Director",
+            "date_of_appointment": "2010-05-15"
+        },
+        {
+            "din": "00199876",
+            "name": "ANITA RAO",
+            "designation": "Independent Director",
+            "date_of_appointment": "2015-11-20"
+        }
+    ],
+    "relationships": [
+        {
+            "source_id": "00191234",
+            "target_id": "U40100MH2000PLC7404",
+            "relation_type": "Managing Director"
+        },
+        {
+            "source_id": "00199876",
+            "target_id": "U40100MH2000PLC7404",
+            "relation_type": "Independent Director"
+        }
+    ]
+}
