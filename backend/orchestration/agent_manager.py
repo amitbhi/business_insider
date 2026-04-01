@@ -35,7 +35,7 @@ class AgentManager:
         self.strategic_engine = StrategicEngine()
         self.llm = LocalLLM()
 
-    async def run_full_analysis(self, query: str, country: str, job_id: str = "JOB-001") -> Dict[str, Any]:
+    async def run_full_analysis(self, query: str, country: str, job_id: str = "JOB-001", data_source: str = "mock") -> Dict[str, Any]:
         """
         Executes the formally defined 8-stage Intelligence Lifecycle.
         """

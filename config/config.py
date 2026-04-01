@@ -1,14 +1,11 @@
-"""
-Config Loader Module.
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from typing import Optional
+import os
 
-Validates and loads environment variables dynamically for
-secure operation. Strongly typed with Pydantic.
-"""
-
-# from pydantic_settings import BaseSettings
-
-class Settings:
+class Settings(BaseSettings):
     """Consolidated configuration class mapped from the OS environment."""
+    
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="allow")
     
     app_name: str = "Business Insider Intelligence Engine"
     
@@ -22,4 +19,8 @@ class Settings:
     # Data Pipeline
     DATA_SOURCE: str = "mock" # Can be updated to "mca"
     
+    # SEC EDGAR
+    SEC_USER_AGENT: str = "BusinessInsider/1.0 (amitvishnu@gmail.com)"
+    USE_LIVE_SEC: bool = False
+
 config = Settings()

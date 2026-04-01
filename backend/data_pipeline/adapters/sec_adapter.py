@@ -3,6 +3,8 @@ import httpx
 from typing import Dict, Any, List
 from .base import RegistryAdapter
 
+from config.config import config
+
 class SECAdapter(RegistryAdapter):
     """
     Adapter for the SEC (USA) - EDGAR data.
@@ -10,7 +12,8 @@ class SECAdapter(RegistryAdapter):
     
     def __init__(self):
         # SEC requires a descriptive User-Agent header (Person/Email)
-        self.user_agent = os.getenv("SEC_USER_AGENT", "BusinessInsider/1.0 (Research Project)")
+        self.user_agent = config.SEC_USER_AGENT
+        self.use_live_sec = config.USE_LIVE_SEC
         self.base_url = "https://data.sec.gov/submissions"
 
     async def fetch_company_master(self, company_id: str) -> Dict[str, Any]:
@@ -18,7 +21,7 @@ class SECAdapter(RegistryAdapter):
         # Normalize CIK to 10 digits
         cik = company_id.zfill(10)
         
-        if os.getenv("USE_LIVE_SEC"):
+        if self.use_live_sec:
             async with httpx.AsyncClient(headers={"User-Agent": self.user_agent}) as client:
                 url = f"{self.base_url}/CIK{cik}.json"
                 response = await client.get(url)
@@ -48,7 +51,7 @@ class SECAdapter(RegistryAdapter):
             ]
         }
         
-    async def fetch_ownership_data(self, company_id: str) -> List[Dict[Dict[str, Any]]]:
+    async def fetch_ownership_data(self, company_id: str) -> List[Dict[str, Any]]:
         """Fetch SEC 13D/G ownership data."""
         # Simulated logic: This would normally query the open SEC API or Edgar-Query
         return [

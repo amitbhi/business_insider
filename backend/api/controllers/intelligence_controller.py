@@ -24,9 +24,10 @@ class IntelligenceController:
         
         return {
             "company": company_name,
+            "resolved_company_name": result.get("company_name", "N/A"),
             "country": country,
             "job_id": job_id,
-            "intelligence_summary": result.get("intelligence_summary", ""),
+            "intelligence_summary": result.get("intelligence_report", ""),
             "graph": result.get("graph", {}),
             "control_structure": result.get("control_structure", {}),
             "strategic_flags": result.get("strategic_flags", {}),

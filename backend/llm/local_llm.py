@@ -14,7 +14,7 @@ class LocalLLM:
         self.model_name = model_name
         self.url = url
         
-    async def invoke_reasoning(self, prompt: str, system_message: str) -> Dict[str, Any]:
+    async def invoke_reasoning(self, prompt: str, system_prompt: str) -> Dict[str, Any]:
         """
         Sends context to the LLM and demands strictly structured JSON intelligence.
         """
